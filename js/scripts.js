@@ -31,7 +31,7 @@ arrowButton.addEventListener('click', function() {
         let height = this.offsetHeight;
         let width = this.offsetWidth;
         //innerhtml will delete all the info in the box...
-        document.getElementById('arrow-text').innerHTML = `This button is ${height} pixels high and ${width} pixels wide!`;
+        document.getElementById('arrow-text').innerHTML = `This button is <span>${height}</span> pixels high and <span>${width}</span> pixels wide!`;
     });
 });
 
@@ -40,10 +40,12 @@ arrowButton.addEventListener('click', function() {
 -------------------------------------*/
 
 var wait = () => new Promise((resolve, reject) => {
-    setTimeout(resolve, 2000)
-})
-
-$('#promise-2000').click((event) => {
+        setTimeout(resolve, 2000)
+    })
+    // create variable for button
+const promiseButton = document.querySelector('#promise-2000');
+// add event listener
+promiseButton.addEventListener('click', function() {
     document.getElementById('promises').innerHTML = ``
     wait()
         .then(function() {
@@ -58,4 +60,4 @@ $('#promise-2000').click((event) => {
             document.getElementById('promises').innerHTML = `I did it!`
         });
 
-});
+})
